@@ -9,7 +9,7 @@ var http = require('http'),
     errorhandler = require('errorhandler'),
     mongoose = require('mongoose');
 
-var isProduction = process.env.NODE_ENV === 'production';
+var isProduction = 'production' === 'production';
 
 // Create global app object
 var app = express();
@@ -31,9 +31,9 @@ if (!isProduction) {
 }
 
 if(isProduction){
-  mongoose.connect(process.env.MONGODB_URI);
+  mongoose.connect('mongodb://mongocosms:IM1NqQfRvZgXmapCi4pZMh593mkfl4CAI4mTRWgTviCHXiR57ZZLpTBFNLpflYanGeC9pfBG0P2VeNO5zesfTQ==@mongocosms.mongo.cosmos.azure.com:10255/?ssl=true&appName=@mongocosms@');
 } else {
-  mongoose.connect('mongodb://localhost/conduit');
+  mongoose.connect('mongodb://mongocosms:IM1NqQfRvZgXmapCi4pZMh593mkfl4CAI4mTRWgTviCHXiR57ZZLpTBFNLpflYanGeC9pfBG0P2VeNO5zesfTQ==@mongocosms.mongo.cosmos.azure.com:10255/?ssl=true&appName=@mongocosms@');
   mongoose.set('debug', true);
 }
 
