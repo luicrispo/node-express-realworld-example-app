@@ -66,7 +66,6 @@ router.get('/', auth.optional, function(req, res, next) {
       Article.find(query)
         .limit(Number(limit))
         .skip(Number(offset))
-        .sort({createdAt: 'desc'})
         .populate('author')
         .exec(),
       Article.count(query).exec(),
